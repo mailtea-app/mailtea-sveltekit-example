@@ -62,7 +62,7 @@ export async function sendContactMessage(input: ContactInput): Promise<SendResul
 
 	try {
 		const mailtea = new Mailtea(env.MAILTEA_API_KEY, {
-			// Only needed for local dev or a self-hosted Mailtea. Omit in production.
+			// Optional override of the API host. Unset, the SDK uses https://api.mailtea.app.
 			// `|| undefined` matters: a host that defines the variable as an empty
 			// string would otherwise give the client a base URL of "", and every
 			// request would fail on a relative URL instead of hitting the default.
